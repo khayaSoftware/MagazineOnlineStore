@@ -1,0 +1,247 @@
+/*
+ * This program is designed to read in magazines selected by the user and output
+ * the cost of them possible including a discount.
+ */
+
+package magazineshop;
+import java.util.Scanner;
+/**
+ *
+ * Ruairi X00121581
+ * Khaya Khumalo X00089102
+ * Evan X00102019
+ */
+public class MagazineShop {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+        // Data Constants
+        final String USERNAME= "username";
+        final String PASSWORD= "password";
+        final double LITTLE_KID= 1.30;
+        final double TEEN_SCENE= 2.45;
+        final double ECONOMIST= 3.30;
+        final double PC_TODAY= 3.75;
+        final double BEST_TECH= 4.50;
+        final double PHILOSOPHY_TODAY=4.40;
+        final double WRITERS_FORUM= 5.00;
+        final double DISCOUNT1= 0.05;
+        final double DISCOUNT2= 0.10;
+        
+        // Data Inputs
+        String fullName;
+        String address;
+        long ccNumber;
+        String ccType;
+        int day;
+        int month;
+        int year;
+        String mag1;
+        String mag2;
+        String mag3;
+        int quantity1;
+        int quantity2;
+        int quantity3;
+        String testUsername;
+        String testPassword;
+        String eol;
+        int discountPercent = 0;
+        // Data Outputs
+        double totalCost;
+        double discountAmount;
+        double netCost;
+        double price1 = 0;
+        double price2 = 0;
+        double price3 = 0;
+        
+      Scanner in=new Scanner(System.in);  
+    
+    
+    //Scanner input
+    System.out.println("Enter username name here");
+    testUsername = in.nextLine();
+    
+    System.out.println("Enter password here");
+    testPassword =in.nextLine();
+    
+    
+    //Test for equality when logging in
+    if ((testUsername.equalsIgnoreCase(USERNAME)) && (testPassword.equalsIgnoreCase(PASSWORD)))
+      {
+        System.out.println("The password you have entered is correct");
+        System.out.println("The username you've entered is correct");
+    
+ 
+    
+    //Scanner input for personal details
+    System.out.println("Enter your full name below:");
+    fullName = in.nextLine();
+    
+    System.out.println("Enter your full address here:");
+    address = in.nextLine();
+    
+    System.out.println("Enter your credit card number here:");
+    ccNumber = in.nextLong();
+    eol = in.nextLine();
+    System.out.println("Enter credit card type here:");
+    ccType = in.nextLine();
+    
+    System.out.println("Enter day of birth here:");
+    day = in.nextInt();
+    
+    System.out.println("Enter your month of birth here (in number format):");
+    month = in.nextInt();
+    
+    System.out.println("Enter year of birth here:");
+    year = in.nextInt();
+    eol = in.nextLine();
+    
+    //Print out for options of magazines
+   System.out.printf(" Little Kid,          %.2f%n Teen Scene,          %.2f%n Economist,           %.2f%n PC Today,            %.2f%n Best Tech,           %.2f%n Philosophy Today,    %.2f%n Writer's Forum,      %.2f%n ",LITTLE_KID,TEEN_SCENE,ECONOMIST,PC_TODAY,BEST_TECH,PHILOSOPHY_TODAY,WRITERS_FORUM);
+    
+
+    //Scanner input for choice of magazines
+    System.out.println("Enter name of your first choice, from the list above, of desired magazine here:");
+    mag1 = in.nextLine();
+    //Scanner input for Quantity
+    System.out.println("Enter quantity of first magazine here;");
+    quantity1= in.nextInt();
+    eol = in.nextLine();
+     
+    System.out.println("Enter second choice here");
+    mag2 = in.nextLine();
+    System.out.println("Enter quantity of second magazine here;");
+    quantity2= in.nextInt();
+    eol = in.nextLine();
+    
+    System.out.println("Enter third choice here");
+    mag3 = in.nextLine();
+    System.out.println("Enter quantity of third magazine here;");
+    quantity3= in.nextInt(); 
+    
+    //Switch for magazine choice 1
+    switch (mag1.toLowerCase()){
+        case "little kid":
+        price1=LITTLE_KID*quantity1;
+        break;
+        case "teen Scene":
+        price1=TEEN_SCENE*quantity1;
+        break;
+        case "economist" :
+        price1=ECONOMIST*quantity1;
+        break;
+        case "pc today" :
+        price1=PC_TODAY*quantity1;
+        break; 
+        case "best tech" :
+        price1=PC_TODAY*quantity1;
+        break;
+        case "philosophy today" :
+        price1=PHILOSOPHY_TODAY*quantity1;
+        break;     
+        case "writer's forum" :
+        price1=WRITERS_FORUM*quantity1;
+        break;  
+        default:
+        break;
+       
+    }
+    
+    //Switch for magazine choice 2
+    switch (mag2.toLowerCase()){
+        case "little kid":
+        price2=LITTLE_KID*quantity2;
+        break;
+        case "teen scene":
+        price2=TEEN_SCENE*quantity2;
+        break;
+        case "economist" :
+        price2=ECONOMIST*quantity2;
+        break;
+        case "pc today" :
+        price2=PC_TODAY*quantity2;
+        break; 
+        case "best tech" :
+        price2=PC_TODAY*quantity2;
+        break;
+        case "philosophy today" :
+        price2=PHILOSOPHY_TODAY*quantity2;
+        break;     
+        case "writer's forum" :
+        price2=WRITERS_FORUM*quantity2;
+        break;
+        default:
+        break;
+                     
+    }
+    //Switch for magazine choice 3
+    switch (mag3.toLowerCase()){
+        case "little kid":
+        price3=LITTLE_KID*quantity3;
+        break;
+        case "teen scene":
+        price3=TEEN_SCENE*quantity3;
+        break;
+        case "economist" :
+        price3=ECONOMIST*quantity3;
+        break;
+        case "pc today" :
+        price3=PC_TODAY*quantity3;
+        break; 
+        case "best tech" :
+        price3=PC_TODAY*quantity3;
+        break;
+        case "philosophy today" :
+        price3=PHILOSOPHY_TODAY*quantity3;
+        break;     
+        case "writer's forum" :
+        price3=WRITERS_FORUM*quantity3;
+        break;  
+        default:
+        break;    
+                
+    }
+    
+    //Total Cost sum
+    totalCost= price1+price2+price3;
+    
+    //If statement to check for discount
+    if (totalCost>40){
+        discountAmount=totalCost*DISCOUNT2;
+        discountPercent=10;
+    }
+    else if (totalCost>15){
+        discountAmount=totalCost*DISCOUNT1;
+        discountPercent=5;
+    }
+    else {
+        discountAmount=0;
+    } 
+    //Net Cost sum
+    netCost=totalCost-discountAmount;
+    
+    //Output results
+    System.out.println("Your total cost for this order is:" + totalCost);
+    
+    System.out.println("You have/have not recieved a discount, value of " + discountPercent + " percent Yielding:" + discountAmount);
+    
+    System.out.println("Your net cost after discount is " + netCost);
+    
+    System.out.println("Thank You!");
+
+    }
+    
+    //Error for incorrect username & password
+    else{
+        System.out.println("The password or username you have entered is incorrect, please try again.");
+    }
+    
+    
+    
+    }
+    
+    
+}
